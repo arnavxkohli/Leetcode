@@ -1,0 +1,6 @@
+# Longest Repeating Substring With Replacement
+
+This is a sliding window algorithm question. There are two main tricks to solving this.
+
+1. `O(26n)`: This solution involves finding all "valid" sliding windows where a valid window is one that has the property: `window_size - max(frequencies_arr) <= k`. Where `k` is given, the `window_size` as per all sliding window questions is `r-l+1` and the `frequencies_arr` is a 26 element array with one frequency for each capital letter. When a window is invalid, you are meant to shift `l` until you make a valid array. The intuition is not hard to get if thinking about it like this.
+2. `O(n)`: This one is very clever. It relies on the fact that the valid constraint can be written as: `window_size <= max(frequencies_arr) + k`. Since we are returning the largest `window_size` such that it is a valid window according to the above constraints, it then becomes: `window_size = max(frequencies_arr) + k`. You do not need to get into the maths of it but just realize that at any point, you can just keep track of the largest frequency encountered even if you are reducing the array. You would need a frequencies array, but this is now only to check if `max_f` can be increased.
