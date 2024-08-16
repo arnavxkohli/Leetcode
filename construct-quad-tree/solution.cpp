@@ -17,29 +17,33 @@ public:
 };
 
 class Solution {
+private:
+  vector<vector<int>> grid;
+
 public:
-  Node *construct(vector<vector<int>>& grid) {
-    int n = grid.size(), size = grid.size() * grid.size();
-    int sum = 0;
-    for(vector<int> row: grid) for(int element: row) sum += element;
-    cout << (sum < size) << endl;
-    if(sum == 0 || sum == size) return new Node(sum == size, true);
-    vector<vector<int>> tl, tr, bl, br;
-    for(int r=0; r<int(n/2); r++) {
-      vector<int> tlRow, trRow, blRow, brRow;
-      for(int c=0; c<int(n/2); c++) {
-        tlRow.push_back(grid[r][c]);
-        trRow.push_back(grid[r][c+int(n/2)]);
-        blRow.push_back(grid[r+int(n/2)][c]);
-        brRow.push_back(grid[r+int(n/2)][c+int(n/2)]);
+  Node *recursiveConstruct(int rStart, int cStart, int n) {
+    if(n == 1) return new Node(grid[rStart][cStart], true);
+    bool isLeaf = true;
+    for(int r=rStart; r<rStart+n; r++) {
+      int c = cStart;
+      while(c < cStart+n && isLeaf) {
+        isLeaf = grid[r][c] == grid[rStart][cStart];
+        c++;
       }
-      tl.push_back(tlRow);
-      tr.push_back(trRow);
-      bl.push_back(blRow);
-      br.push_back(brRow);
+      if(!isLeaf) break;
     }
-    return new Node(sum > (size/2), false, construct(tl),
-      construct(tr), construct(bl), construct(br));
+    if(isLeaf) return new Node(grid[rStart][cStart], true);
+    int half = n/2;
+    return new Node(grid[rStart][cStart], false,
+      recursiveConstruct(rStart, cStart, half),
+      recursiveConstruct(rStart, cStart+half, half),
+      recursiveConstruct(rStart+half, cStart, half),
+      recursiveConstruct(rStart+half, cStart+half, half));
+  }
+
+  Node *construct(vector<vector<int>>& grid) {
+    this->grid = grid;
+    return recursiveConstruct(0, 0, grid.size());
   }
 };
 
