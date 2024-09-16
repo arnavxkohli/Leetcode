@@ -59,11 +59,12 @@ Both of these can be solved by creating data for each user and puppy. Background
 ## What are the necessary skills to do well in a decomp interview?
 
 - Don't overengineer your solution: Do they need a massive dashboard
+- Pick a goal. Solve and optimize for the goal.
 - Problem compartmentalization
 - Have great communication, for idea generation.
 - Be critical and assess if ideas are good or bad and why?
 - Evaluate trade offs: Pros and Cons of making different decisions and justify the choices you make given the solution.
-- Think about the user: How technical are they? In what sitatuion will they use the solution. 
+- Think about the user: How technical are they? In what sitatuion will they use the solution.
 - Establish structure: Identify the subcomponents of the problem and use them to guide design process.
 - Use abstractions
 - Start with a minimum viable product -> Progress, not perfection.
@@ -71,19 +72,17 @@ Both of these can be solved by creating data for each user and puppy. Background
 - Have a clear mind and clear direction -> no nervousness
 - Dont shoot for the stars before the MVP.
 
-
-## Datasets available:
+## Datasets available
 
 - User information: Name, age, location, rating
 - Puppy information: Name, age, location, rating
 
+## Puppy allocation
 
-## Puppy allocation:
-
-- More for regular people 
+- More for regular people
 - Major cities -> a lot of people -> middle-man -> local hospitals -> Vet (Regular check-ins) -> Partner with them to build more dogs and "scale" (smaller systems)
-- Duration per user -> keep track of how you treated dogs you already had. 
-- Algorithm for users and puppies -> scores you get allotted a puppy. 
+- Duration per user -> keep track of how you treated dogs you already had.
+- Algorithm for users and puppies -> scores you get allotted a puppy.
 - Puppies might have "personalities" -> active/laid back
 - Location -> Users can set how far they are willing to travel
 
