@@ -1,0 +1,3 @@
+# Time needed to inform all employees
+
+I think the fact that you are guaranteed a tree makes this easier. It means only one parent, so you will visit one node only once. I think if it wasn't a tree you might need dijkstra's (if no cycle but multiple parents) or bellman-ford (if cycle). But since it is a tree, you can just do a bfs. The only thing you need to keep track of is the time taken to reach the current node. This is because the time taken to reach the current node is the time taken to reach the parent + the time taken to inform the parent. This is the only thing you need to keep track of. The rest is just a simple bfs.
