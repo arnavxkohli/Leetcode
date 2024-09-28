@@ -1,0 +1,3 @@
+# Maximum sum circular subarray
+
+Well this is a twist on Kadane's algorithm. You have two cases to consider. When the max sum subarray does not wrap around it is a conventional case. When it does, the remaining subarray would have to logically be the minimum sum subarray. Which means you need to consider the maximum of the max sum subarray, and the difference between the total sum and min sum subarray. Be careful if the entire array is negative because in this case the entire second part would be 0, but empty arrays are not allowed. To ensure this is not the case, check if the max sum is greater than 0. If it is not, return the max sum. Otherwise, return the max of the two cases specified above.
